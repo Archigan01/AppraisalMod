@@ -38,6 +38,7 @@ namespace AppraisalMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			CreateRecipe()
+				.AddRecipeGroup("Wood", 3)
 				.AddIngredient<NickelOre>(6)
 				.AddTile(TileID.Anvils)
 				.Register();

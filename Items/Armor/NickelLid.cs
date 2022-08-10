@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
 using AppraisalMod.Items.Placeable;
-using ApraisalMod.Items.Armor;
+using AppraisalMod.Items.Armor;
 
 namespace AppraisalMod.Items.Armor
 {

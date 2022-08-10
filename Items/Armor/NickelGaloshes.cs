@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.GameContent.Creative;
 using AppraisalMod.Items.Placeable;
 
-namespace ApraisalMod.Items.Armor
+namespace AppraisalMod.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
 	public class NickelGaloshes : ModItem

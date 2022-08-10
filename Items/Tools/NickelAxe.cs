@@ -1,18 +1,17 @@
-﻿using ExampleMod.Content.Dusts;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using AppraisalMod.Items.Placeable;
 
-namespace ExampleMod.Content.Items.Tools
+namespace AppraisalMod.Items.Tools
 {
-	public class ExampleHamaxe : ModItem
+	public class NickelAxe : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("This is a modded hamaxe.");
+			Tooltip.SetDefault("");
 
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
@@ -44,6 +43,7 @@ namespace ExampleMod.Content.Items.Tools
 		public override void AddRecipes()
 		{
 			CreateRecipe()
+				.AddRecipeGroup("Wood", 3)
 				.AddIngredient<NickelOre>(8)
 				.AddTile(TileID.Anvils)
 				.Register();

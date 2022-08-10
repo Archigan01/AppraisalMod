@@ -7,7 +7,7 @@ using AppraisalMod.Items.Placeable;
 
 namespace AppraisalMod.Items.Weapons
 {
-	public class AppraisalBroadsword : ModItem
+	public class NickelBroadsword : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -48,6 +48,7 @@ namespace AppraisalMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			CreateRecipe()
+				.AddRecipeGroup("Wood", 3)
 				.AddIngredient<NickelOre>(8)
 				.AddTile(TileID.Anvils)
 				.Register();
