@@ -11,8 +11,6 @@
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Items\Weapons\" />
-    <Folder Include="Items\Tools\" />
     <Folder Include="Localization\" />
   </ItemGroup>
 </Project>
