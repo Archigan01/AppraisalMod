@@ -10,14 +10,6 @@ namespace AppraisalMod.Items.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class NickelLid : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			Tooltip.SetDefault("");
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-		}
-
-
 		public override void SetDefaults()
 		{
 			Item.width = 18;

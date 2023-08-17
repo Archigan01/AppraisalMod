@@ -1,40 +1,125 @@
-Mods:
-{
-    AppraisalMod:
-    {
-        Dialogue: 
-        {
-            MysticScholar:
-            {
-                FirstTimeDialogue: "Aah my Child. I see that fate has smiled down upon you. 'Tis always helpful to have the divine forces on your side. You must make haste in your quest, for this world has not long left. The evils that fester within it's core have grown stronger over the generations they were left to mutate. Now, vile creatures beyond your wildest nightmares prowl these lands. I beg of you, Terrarian, save our world! I wish you luck, my child."
-                StandardDialogue1: "The name's Scholar, Mystic Scholar."
-                StandardDialogue2: "I bet there is a guy named Archigan who is cool. Probably."
-                StandardDialogue3: "Nook did a great job on me."
-                StandardDialogue4: "Run you clever boy."
-                StandardDialogue5: "Here's looking at you, kid."
-                StandardDialogue6: "I love the smell of napalm in the morning.... Smells like, victory."
-                StandardDialogue7: "Now actively hiring developers!"
-            }
-        }
-        TownNPCMood:
-        {
-            MysticScholar: 
-            {
-                Content: "I am feeling serene."
-                NoHome: "I kind of like having no home, but also having somewhere to stay would be nice."
-                LoveSpace: "It truly is nice and peaceful without everyone here."
-                FarFromHome: "I'm away from home right now, probably wandering around."
-                DislikeCrowded: "Not happy about the new people that have moved in."
-                HateCrowded: "Way too many people here poking their heads into my business."
-                LikeBiome: "{BiomeName} has always been a peaceful place."
-                LoveBiome: "{BiomeName} is thick, a nice stayaway from the bustling town."
-                DislikeBiome: "I don't have any biomes I dislike."
-                HateBiome: "It's way too cheery in {BiomeName}, too many colours."
-                LikeNPC: "I've always liked {NPCName}, they've been here almost as long as I have."
-                LoveNPC: "{NPCName} really gets my sense of secrecy and love for the jungle."
-                DislikeNPC: "{NPCName} always insists on healing me. I think I'll stick with the Witch Doctor."
-                HateNPC: "Man, do I hate that {NPCName}. I always ignore her parties."
-            }
-        }
-    }
+Mods: {
+	AppraisalMod: {
+		Dialogue: {
+			MysticScholar: {
+				FirstTimeDialogue: Aah my Child. I see that fate has smiled down upon you. 'Tis always helpful to have the divine forces on your side. You must make haste in your quest, for this world has not long left. The evils that fester within it's core have grown stronger over the generations they were left to mutate. Now, vile creatures beyond your wildest nightmares prowl these lands. I beg of you, Terrarian, save our world! I wish you luck, my child.
+				StandardDialogue1: The name's Scholar, Mystic Scholar.
+				StandardDialogue2: I bet there is a guy named Archigan who is cool. Probably.
+				StandardDialogue3: Nook did a great job on me.
+				StandardDialogue4: Run you clever boy.
+				StandardDialogue5: Here's looking at you, kid.
+				StandardDialogue6: I love the smell of napalm in the morning.... Smells like, victory.
+				StandardDialogue7: Now actively hiring developers!
+			}
+		}
+
+		TownNPCMood: {
+			MysticScholar: {
+				Content: I am feeling serene.
+				NoHome: I kind of like having no home, but also having somewhere to stay would be nice.
+				LoveSpace: It truly is nice and peaceful without everyone here.
+				FarFromHome: I'm away from home right now, probably wandering around.
+				DislikeCrowded: Not happy about the new people that have moved in.
+				HateCrowded: Way too many people here poking their heads into my business.
+				LikeBiome: "{BiomeName} has always been a peaceful place."
+				LoveBiome: "{BiomeName} is thick, a nice stayaway from the bustling town."
+				DislikeBiome: I don't have any biomes I dislike.
+				HateBiome: It's way too cheery in {BiomeName}, too many colours.
+				LikeNPC: I've always liked {NPCName}, they've been here almost as long as I have.
+				LoveNPC: "{NPCName} really gets my sense of secrecy and love for the jungle."
+				DislikeNPC: "{NPCName} always insists on healing me. I think I'll stick with the Witch Doctor."
+				HateNPC: Man, do I hate that {NPCName}. I always ignore her parties.
+			}
+		}
+
+		Items: {
+			NickelGaloshes: {
+				DisplayName: Nickel Galoshes
+				Tooltip: ""
+			}
+
+			NickelLid: {
+				DisplayName: Nickel Lid
+				Tooltip: ""
+			}
+
+			NickelPlate: {
+				DisplayName: Nickel Battledress
+				Tooltip: ""
+			}
+
+			NickelOre: {
+				DisplayName: Nickel Ore
+				Tooltip: ""
+			}
+
+			Reality: {
+				DisplayName: Soul of Reality
+				Tooltip: "'Reality can be whatever I want...'"
+			}
+
+			Shadow: {
+				DisplayName: Soul of Shadows
+				Tooltip: "'A figment of the night sky.'"
+			}
+
+			StarterBag: {
+				DisplayName: Starter Bag
+				Tooltip: <right> to open
+			}
+
+			NickelAxe: {
+				DisplayName: Nickel Axe
+				Tooltip: ""
+			}
+
+			NickelHammer: {
+				DisplayName: Nickel Hammer
+				Tooltip: ""
+			}
+
+			NickelPick: {
+				DisplayName: Nickel Pick
+				Tooltip: ""
+			}
+
+			NickelBroadsword: {
+				DisplayName: Nickel Broadsword
+				Tooltip: ""
+			}
+
+			NickelShortsword: {
+				DisplayName: Nickel Shortsword
+				Tooltip: ""
+			}
+		}
+
+		NPCs: {
+			MysticScholar: {
+				DisplayName: Mystic Scholar
+
+				TownNPCMood: {
+					Princess_LovesNPC: I like {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					HateNPC: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.HateNPC}"
+					DislikeNPC: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.DislikeNPC}"
+					LikeNPC: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.LikeNPC}"
+					LoveNPC: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.LoveNPC}"
+					HateBiome: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.HateBiome}"
+					LikeBiome: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.LikeBiome}"
+					LoveBiome: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.LoveBiome}"
+					HateCrowded: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.HateCrowded}"
+					DislikeCrowded: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.DislikeCrowded}"
+					LoveSpace: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.LoveSpace}"
+					FarFromHome: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.FarFromHome}"
+					NoHome: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.NoHome}"
+					Content: "{$Mods.AppraisalMod.TownNPCMood.MysticScholar.Content}"
+				}
+
+				Census.SpawnCondition: Conditions unknown
+			}
+		}
+
+		Tiles.NickelOre.MapEntry: Nickel Ore
+	}
 }

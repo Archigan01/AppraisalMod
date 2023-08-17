@@ -6,11 +6,6 @@ namespace AppraisalMod.Items
 {
     public class StarterBag : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Starter Bag");
-            Tooltip.SetDefault("<right> to open");
-        }
         public override void SetDefaults()
         {
             Item.width = 16;

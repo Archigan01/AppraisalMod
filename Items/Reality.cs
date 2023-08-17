@@ -9,20 +9,6 @@ namespace AppraisalMod.Items
 {
 	public class Reality : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Soul of Reality");
-			Tooltip.SetDefault("'Reality can be whatever I want...'");
-
-			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
-			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
-
-			ItemID.Sets.ItemIconPulse[Item.type] = true;
-			ItemID.Sets.ItemNoGravity[Item.type] = true;
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 50;
-		}
-
 		public override void SetDefaults()
 		{
 			Item refItem = new Item();

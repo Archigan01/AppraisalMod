@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -21,12 +22,10 @@ namespace AppraisalMod.Tiles
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
 
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Nickel Ore");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(169, 165, 154), name);
 
 			DustType = 84;
-			ItemDrop = ModContent.ItemType<Items.Placeable.NickelOre>();
 			HitSound = SoundID.Tink;
 			MineResist = 1.5f;
 		}
@@ -34,7 +33,7 @@ namespace AppraisalMod.Tiles
 
 	public class NickelOreSystem : ModSystem
 	{
-		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
 		{
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 
@@ -59,7 +58,7 @@ namespace AppraisalMod.Tiles
 			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
 			{
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY);
+				int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
 
 				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), ModContent.TileType<NickelOre>());
 			}

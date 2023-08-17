@@ -9,12 +9,6 @@ namespace AppraisalMod.Items.Weapons
 {
 	public class NickelBroadsword : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			Tooltip.SetDefault("");
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
 
 		public override void SetDefaults()
 		{
@@ -39,9 +33,8 @@ namespace AppraisalMod.Items.Weapons
 
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-
 		}
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.

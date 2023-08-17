@@ -9,14 +9,6 @@ namespace AppraisalMod.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class NickelPlate : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			base.SetStaticDefaults();
-			DisplayName.SetDefault("Nickel Battledress");
-			Tooltip.SetDefault("");
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
 
 
 		public override void SetDefaults()

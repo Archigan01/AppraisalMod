@@ -9,20 +9,6 @@ namespace AppraisalMod.Items
 {
 	public class Shadow : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Soul of Shadows");
-			Tooltip.SetDefault("'A figment of the night sky.'");
-
-			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
-			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
-
-			ItemID.Sets.ItemIconPulse[Item.type] = true;
-			ItemID.Sets.ItemNoGravity[Item.type] = true;
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 50;
-		}
-
 		public override void SetDefaults()
 		{
 			Item refItem = new Item();

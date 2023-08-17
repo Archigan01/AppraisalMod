@@ -9,13 +9,6 @@ namespace AppraisalMod.Items.Tools
 {
 	public class NickelPick : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			Tooltip.SetDefault("");
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
-
 		public override void SetDefaults()
 		{
 			Item.damage = 6;

@@ -8,13 +8,6 @@ namespace AppraisalMod.Items.Weapons
 {
 	public class NickelShortsword : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Nickel Shortsword");
-
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-		}
-
 		public override void SetDefaults()
 		{
 			Item.damage = 10;

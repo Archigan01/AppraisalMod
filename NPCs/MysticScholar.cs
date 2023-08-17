@@ -95,7 +95,7 @@ namespace AppraisalMod.NPCs
 			return true;
 		}
 
-		public override void HitEffect(int hitDirection, double damage)
+		public override void HitEffect(NPC.HitInfo hit)
 		{
 			int num = NPC.life > 0 ? 1 : 5;
 
@@ -103,9 +103,33 @@ namespace AppraisalMod.NPCs
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke);
 			}
-		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+
+            if (Main.netMode != NetmodeID.Server && NPC.life <= 0)
+            {
+                // Retrieve the gore types. This NPC has shimmer and party variants for head, arm, and leg gore. (12 total gores)
+                string variant = "";
+                if (NPC.IsShimmerVariant) variant += "_Shimmer";
+                if (NPC.altTexture == 1) variant += "_Party";
+                int hatGore = NPC.GetPartyHatGore();
+                int headGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Head").Type;
+                int armGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Arm").Type;
+                int legGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Leg").Type;
+
+                // Spawn the gores. The positions of the arms and legs are lowered for a more natural look.
+                if (hatGore > 0)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, hatGore);
+                }
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, headGore, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 20), NPC.velocity, armGore);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 20), NPC.velocity, armGore);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 34), NPC.velocity, legGore);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 34), NPC.velocity, legGore);
+            }
+        }
+
+		public override bool CanTownNPCSpawn(int numTownNPCs)
 		{
 			return true;
 		}
@@ -170,11 +194,11 @@ namespace AppraisalMod.NPCs
 			button2 = "Talk to the Scholar";
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+		public override void OnChatButtonClicked(bool firstButton, ref string shop)
 		{
 			if (firstButton)
 			{
-				shop = true;
+				shop = "Shop";
 			}
 			else
             {
@@ -184,11 +208,11 @@ namespace AppraisalMod.NPCs
 
         // Not completely finished, but below is what the NPC will sell
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void AddShops()
         {
-            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Reality>());
-            nextSlot++;
-            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Shadow>());
+			var npcShop = new NPCShop(Type, "Shop")
+				.Add(new Item(ModContent.ItemType<Items.Reality>()))
+                .Add(new Item(ModContent.ItemType<Items.Shadow>()));
         }
 
         /*public override void ModifyNPCLoot(NPCLoot npcLoot)
