@@ -20,6 +20,10 @@ namespace AppraisalMod.Pets.Bruster
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.BabyRedPanda);
+            Projectile.width = 42;
+            Projectile.hostile = false;
+            DrawOriginOffsetY = -16;
+            DrawOffsetX = -12;
 
             AIType = ProjectileID.BabyRedPanda;
         }
