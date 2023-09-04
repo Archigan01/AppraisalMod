@@ -1,5 +1,7 @@
 Mods: {
 	AppraisalMod: {
+		Common.Bruster: Bruster
+
 		Dialogue: {
 			MysticScholar: {
 				FirstTimeDialogue: Aah my Child. I see that fate has smiled down upon you. 'Tis always helpful to have the divine forces on your side. You must make haste in your quest, for this world has not long left. The evils that fester within it's core have grown stronger over the generations they were left to mutate. Now, vile creatures beyond your wildest nightmares prowl these lands. I beg of you, Terrarian, save our world! I wish you luck, my child.
@@ -33,6 +35,11 @@ Mods: {
 		}
 
 		Items: {
+			BrusterItem: {
+				DisplayName: Bruster
+				Tooltip: Summons Bruster the G to follow you around
+			}
+
 			NickelGaloshes: {
 				DisplayName: Nickel Galoshes
 				Tooltip: ""
@@ -121,5 +128,14 @@ Mods: {
 		}
 
 		Tiles.NickelOre.MapEntry: Nickel Ore
+
+		Buffs: {
+			BrusterBuff: {
+				DisplayName: Bruster
+				Description: An old friend once lost, brought back to life in memory.
+			}
+		}
+
+		Projectiles.BrusterProjectile.DisplayName: Bruster
 	}
 }

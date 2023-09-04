@@ -30,7 +30,7 @@ namespace AppraisalMod.NPCs
 			Main.npcFrameCount[Type] = 26;
 
 			NPCID.Sets.ExtraFramesCount[Type] = 9;
-			NPCID.Sets.AttackFrameCount[Type] = 4;
+			NPCID.Sets.AttackFrameCount[Type] = 0;
 			NPCID.Sets.DangerDetectRange[Type] = 700;
 			NPCID.Sets.AttackType[Type] = 3;
 			NPCID.Sets.AttackTime[Type] = 90;
@@ -70,7 +70,7 @@ namespace AppraisalMod.NPCs
 			NPC.lifeMax = 10000;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 10f;
+			NPC.knockBackResist = 0.1f;
 
 			AnimationType = NPCID.Guide;
 		}
