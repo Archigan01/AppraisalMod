@@ -26,7 +26,7 @@ namespace AppraisalMod.Pets.Bruster
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<Reality>()
+                .AddIngredient<Shadow>()
                 .AddTile(TileID.Anvils)
                 .Register();
         }

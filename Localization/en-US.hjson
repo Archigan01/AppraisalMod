@@ -40,6 +40,11 @@ Mods: {
 				Tooltip: Summons Bruster the G to follow you around
 			}
 
+			NellyItem: {
+				DisplayName: Nelly
+				Tooltip: Summons Nelly the Lovely to follow you around
+			}
+
 			NickelGaloshes: {
 				DisplayName: Nickel Galoshes
 				Tooltip: ""
@@ -134,8 +139,16 @@ Mods: {
 				DisplayName: Bruster
 				Description: An old friend once lost, brought back to life in memory.
 			}
+
+			NellyBuff: {
+				DisplayName: Nelly
+				Description: A younger friend recently lost, brought back to life in memory.
+			}
 		}
 
-		Projectiles.BrusterProjectile.DisplayName: Bruster
+		Projectiles: {
+			BrusterProjectile.DisplayName: Bruster
+			NellyProjectile.DisplayName: Nelly
+		}
 	}
 }
