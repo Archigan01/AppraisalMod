@@ -1,10 +1,11 @@
-Appraisal Mod is an ongoing project (has been for too long) with me and some others. After a large hiatus, I have decided to come back and revive this old project of mine, starting with the Mystic Scholar and going from there.
+I am trying to rebuild this mod back to what it was. However, I have lost all of the original files, and may have no way to recover them. I am actively looking for devs, spriters, and the like to push this mod forward in development, please DM me (gfra on Discord) to be added to our server!
 
-Changelog can be found in my Discord server (discord.gg/3WQeea9) in #changelog. Bear in mind as I have to finish setting up the Discord server.
+I would love for this to be a new, full content mod. Would of course love to see it go past ML, but for now I just want to start from early game and develop through each step of progression. Join the team and let's see what we can make with what we used to have.
 
-Yes, the changelog is based entirely off of Calamity Mod's. No, I do not care.
-
-I am accepting applications for any position (dev, spriter, or music producer) to help in any way with this mod.
-
-Dev applications are now in a google form! If you want easy access to the form, join my Discord server above and click the link in #development-applications.
-Alternatively, copy this link: https://forms.gle/NSwUH97tsNXh46PH8
+v0.11 out now! Changelog:
+- All items and NPCs are back to what they were before
+- Mystic Scholar now functions properly, now has a unique attack
+- All localization updated and made consistent, so it doesn't bite me when I get further
+- Mod properly ported to 1.4.4
+- Updated tooltips
+- Got Nickel to add to the map (finally)

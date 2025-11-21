@@ -1,6 +1,9 @@
 ﻿using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
+using AppraisalMod.Items.Tools;
+using AppraisalMod.Items.Weapons;
+using AppraisalMod.Items.Placeable;
 
 namespace AppraisalMod.Items
 {
@@ -19,7 +22,12 @@ namespace AppraisalMod.Items
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(null, ItemID.TinBar, 15);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelBroadsword>(), 1);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelShortsword>(), 1);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelPick>(), 1);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelAxe>(), 1);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelHammer>(), 1);
+            player.QuickSpawnItem(null, ModContent.ItemType<NickelOre>(), Main.rand.Next(15, 31));
             player.QuickSpawnItem(null, ItemID.MiningPotion, 3);
             player.QuickSpawnItem(null, ItemID.LesserHealingPotion, 10);
             player.QuickSpawnItem(null, ItemID.SpelunkerPotion, 3);

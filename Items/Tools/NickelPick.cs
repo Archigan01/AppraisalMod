@@ -9,6 +9,11 @@ namespace AppraisalMod.Items.Tools
 {
 	public class NickelPick : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+		}
+
 		public override void SetDefaults()
 		{
 			Item.damage = 6;
@@ -19,20 +24,14 @@ namespace AppraisalMod.Items.Tools
 			Item.useAnimation = 10;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3;
-			Item.value = Item.buyPrice(silver: 6);
-			Item.rare = ItemRarityID.Green;
+			Item.value = Item.sellPrice(0, 0, 2, 0);
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 
-			Item.pick = 49;
+			Item.pick = 40;
 		}
 
-		public override void MeleeEffects(Player player, Rectangle hitbox)
-		{
-
-		}
-
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes()
 		{
 			CreateRecipe()

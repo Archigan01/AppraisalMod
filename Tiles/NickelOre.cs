@@ -14,7 +14,8 @@ namespace AppraisalMod.Tiles
 		public override void SetStaticDefaults()
 		{
 			TileID.Sets.Ore[Type] = true;
-			Main.tileSpelunker[Type] = true;
+            TileID.Sets.FriendlyFairyCanLureTo[Type] = true;
+            Main.tileSpelunker[Type] = true;
 			Main.tileOreFinderPriority[Type] = 235;
 			Main.tileShine2[Type] = true;
 			Main.tileShine[Type] = 975;
@@ -25,7 +26,7 @@ namespace AppraisalMod.Tiles
 			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(169, 165, 154), name);
 
-			DustType = 84;
+			DustType = DustID.Platinum;
 			HitSound = SoundID.Tink;
 			MineResist = 1.5f;
 		}
@@ -44,15 +45,11 @@ namespace AppraisalMod.Tiles
 		}
 	}
 
-	public class AppraisalOrePass : GenPass
+	public class AppraisalOrePass(string name, float loadWeight) : GenPass(name, loadWeight)
 	{
-		public AppraisalOrePass(string name, float loadWeight) : base(name, loadWeight)
+        protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
 		{
-		}
-
-		protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
-		{
-			progress.Message = "Adding yonder Appraisal ores";
+			progress.Message = Language.GetTextValue("Mods.AppraisalMod.GenerationMessages.Ores");
 
 
 			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)

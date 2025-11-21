@@ -9,6 +9,11 @@ namespace AppraisalMod.Items.Tools
 {
 	public class NickelAxe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+		}
+
 		public override void SetDefaults()
 		{
 			Item.damage = 8;
@@ -19,12 +24,12 @@ namespace AppraisalMod.Items.Tools
 			Item.useAnimation = 25;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5.5f;
-			Item.value = 540;
-			Item.rare = ItemRarityID.Green;
+			Item.value = Item.sellPrice(0, 0, 1, 80);
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 
-			Item.axe = 11;
+			Item.axe = 9;
 		}
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)

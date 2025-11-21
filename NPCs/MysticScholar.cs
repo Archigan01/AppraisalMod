@@ -1,21 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Linq;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
-using Terraria.DataStructures;
 using System.Collections.Generic;
 using ReLogic.Content;
-using Terraria.ModLoader.IO;
 using AppraisalMod.Items;
 
 namespace AppraisalMod.NPCs
@@ -24,25 +18,22 @@ namespace AppraisalMod.NPCs
 	public class MysticScholar : ModNPC
 	{
 		public int NumberOfTimesTalkedTo = 0;
+		public const string ShopName = "Wares";
 
 		public override void SetStaticDefaults()
 		{
 			Main.npcFrameCount[Type] = 26;
 
-			NPCID.Sets.ExtraFramesCount[Type] = 9;
-			NPCID.Sets.AttackFrameCount[Type] = 0;
+            NPCID.Sets.ExtraFramesCount[Type] = 0;
+            NPCID.Sets.AttackFrameCount[Type] = 0;
 			NPCID.Sets.DangerDetectRange[Type] = 700;
-			NPCID.Sets.AttackType[Type] = 3;
-			NPCID.Sets.AttackTime[Type] = 90;
+			NPCID.Sets.AttackType[Type] = 2;
+			NPCID.Sets.AttackTime[Type] = 30;
 			NPCID.Sets.AttackAverageChance[Type] = 30;
-			NPCID.Sets.HatOffsetY[Type] = 4;
+			NPCID.Sets.MagicAuraColor[Type] = Color.Purple;
 
-			
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
-			{
-				Velocity = 1f,
-				Direction = -1
-			};
+
+			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new();
 
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
 
@@ -64,23 +55,23 @@ namespace AppraisalMod.NPCs
 			NPC.friendly = true;
 			NPC.width = 18;
 			NPC.height = 40;
-			NPC.aiStyle = 7;
+			NPC.aiStyle = NPCAIStyleID.Passive;
 			NPC.damage = 10;
 			NPC.defense = 500;
 			NPC.lifeMax = 10000;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.knockBackResist = 0.1f;
+			NPC.knockBackResist = 0f;
 
 			AnimationType = NPCID.Guide;
 		}
 
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
-			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+			bestiaryEntry.Info.AddRange([
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new FlavorTextBestiaryInfoElement("It is unclear how or when the Mystic Scholar got here, but they have interesting stories to tell."),
-			});
+			]);
 		}
 
 
@@ -97,37 +88,13 @@ namespace AppraisalMod.NPCs
 
 		public override void HitEffect(NPC.HitInfo hit)
 		{
-			int num = NPC.life > 0 ? 1 : 5;
+			int num = NPC.life > 0 ? 5 : 100;
 
 			for (int k = 0; k < num; k++)
 			{
 				Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Smoke);
 			}
-
-
-            if (Main.netMode != NetmodeID.Server && NPC.life <= 0)
-            {
-                // Retrieve the gore types. This NPC has shimmer and party variants for head, arm, and leg gore. (12 total gores)
-                string variant = "";
-                if (NPC.IsShimmerVariant) variant += "_Shimmer";
-                if (NPC.altTexture == 1) variant += "_Party";
-                int hatGore = NPC.GetPartyHatGore();
-                int headGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Head").Type;
-                int armGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Arm").Type;
-                int legGore = Mod.Find<ModGore>($"{Name}_Gore{variant}_Leg").Type;
-
-                // Spawn the gores. The positions of the arms and legs are lowered for a more natural look.
-                if (hatGore > 0)
-                {
-                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, hatGore);
-                }
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, headGore, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 20), NPC.velocity, armGore);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 20), NPC.velocity, armGore);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 34), NPC.velocity, legGore);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(0, 34), NPC.velocity, legGore);
-            }
-        }
+		}
 
 		public override bool CanTownNPCSpawn(int numTownNPCs)
 		{
@@ -137,20 +104,23 @@ namespace AppraisalMod.NPCs
 
 		public override ITownNPCProfile TownNPCProfile()
 		{
-			return new ExamplePersonProfile();
+			return new MysticScholarProfile();
 		}
 
 		public override List<string> SetNPCNameList()
 		{
-			return new List<string>() {
+			return [
 				"Henroop Pastabake",
 				"Elton Jim",
-				"J.F.Kidney",
+				"J. F. Kidney",
 				"Dilly Dally Pardon",
 				"<generic name>",
 				"Nicola Ohm",
-				"Phil Battery"
-			};
+				"Phil Battery",
+				"Old Fart",
+				"Humbert Stinkledink",
+				"James 'The Anaconda' Frodo"
+			];
 		}
 
 		public override void FindFrame(int frameHeight)
@@ -168,7 +138,7 @@ namespace AppraisalMod.NPCs
 
 		public override string GetChat()
 		{
-			WeightedRandom<string> chat = new WeightedRandom<string>();
+			WeightedRandom<string> chat = new();
 
 			if (NumberOfTimesTalkedTo == 0)
 			{
@@ -184,21 +154,48 @@ namespace AppraisalMod.NPCs
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue5"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue6"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue7"));
+			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue8"));
 
-			return chat; // chat is implicitly cast to a string.
+			// Dialogues for when different NPCs are alive
+			if (NPC.FindFirstNPC(NPCID.Guide) is not -1)
+			{
+                chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Guide"));
+            }
+			if (NPC.FindFirstNPC(NPCID.WitchDoctor) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.WitchDoctor"));
+			}
+            if (NPC.FindFirstNPC(NPCID.Stylist) is not -1)
+            {
+                chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Stylist"));
+            }
+            if (NPC.FindFirstNPC(NPCID.TaxCollector) is not -1)
+            {
+                chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.TaxCollector"));
+            }
+            if (NPC.FindFirstNPC(NPCID.PartyGirl) is not -1)
+            {
+                chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.PartyGirl"));
+            }
+            if (NPC.FindFirstNPC(NPCID.Princess) is not -1)
+            {
+                chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Princess"));
+            }
+
+            return chat;
 		}
 
 		public override void SetChatButtons(ref string button, ref string button2)
-		{ // What the chat buttons are when you open up the chat UI
-			button = "Shop";
-			button2 = "Talk to the Scholar";
+		{ 
+			button = Language.GetTextValue("Mods.AppraisalMod.NPCs.MysticScholar.Button1");
+			button2 = Language.GetTextValue("Mods.AppraisalMod.NPCs.MysticScholar.Button2");
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref string shop)
 		{
 			if (firstButton)
 			{
-				shop = "Shop";
+				shop = ShopName;
 			}
 			else
             {
@@ -210,9 +207,11 @@ namespace AppraisalMod.NPCs
 
         public override void AddShops()
         {
-			var npcShop = new NPCShop(Type, "Shop")
-				.Add(new Item(ModContent.ItemType<Items.Reality>()))
-                .Add(new Item(ModContent.ItemType<Items.Shadow>()));
+            var shop = new NPCShop(Type, ShopName)
+                .Add<Reality>()
+                .Add<Shadow>();
+
+			shop.Register();
         }
 
         /*public override void ModifyNPCLoot(NPCLoot npcLoot)
@@ -222,7 +221,16 @@ namespace AppraisalMod.NPCs
 
 		public override bool CanGoToStatue(bool toKingStatue) => false;
 
-		/*public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+		public override bool UsesPartyHat() => false;
+
+		public override bool ModifyDeathMessage(ref NetworkText customText, ref Color color)
+		{
+			customText = NetworkText.FromKey("Mods.AppraisalMod.NPCs.MysticScholar.DeathMessage");
+			color = Color.Purple;
+			return true;
+		}
+
+		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
 			damage = 20;
 			knockback = 4f;
@@ -234,20 +242,18 @@ namespace AppraisalMod.NPCs
 			randExtraCooldown = 30;
 		}
 
-		// todo: implement
-		// public override void TownNPCAttackProj(ref int projType, ref int attackDelay) {
-		// 	projType = ProjectileType<SparklingBall>();
-		// 	attackDelay = 1;
-		// }
+		public override void TownNPCAttackProj(ref int projType, ref int attackDelay) {
+			projType = ProjectileID.NebulaArcanum;
+			attackDelay = 1;
+		}
 
-		public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
-		{
-			multiplier = 12f;
-			randomOffset = 2f;
-        }*/
+        public override void TownNPCAttackMagic(ref float auraLightMultiplier)
+        {
+			auraLightMultiplier = 4f;
+        }
     }
 
-	public class ExamplePersonProfile : ITownNPCProfile
+	public class MysticScholarProfile : ITownNPCProfile
 	{
 		public int RollVariation() => 0;
 		public string GetNameForVariant(NPC npc) => npc.getNewNPCName();

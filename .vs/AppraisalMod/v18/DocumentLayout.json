@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|c:\\users\\reece\\documents\\my games\\terraria\\tmodloader\\modsources\\appraisalmod\\localization\\en-us_mods.appraisalmod.hjson||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|solutionrelative:localization\\en-us_mods.appraisalmod.hjson||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|c:\\users\\reece\\documents\\my games\\terraria\\tmodloader\\modsources\\appraisalmod\\npcs\\mysticscholar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|solutionrelative:npcs\\mysticscholar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|c:\\users\\reece\\documents\\my games\\terraria\\tmodloader\\modsources\\appraisalmod\\build.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5FFE19A7-254F-449F-9F41-DC5F1C31A35E}|AppraisalMod.csproj|solutionrelative:build.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MysticScholar.cs",
+              "DocumentMoniker": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\NPCs\\MysticScholar.cs",
+              "RelativeDocumentMoniker": "NPCs\\MysticScholar.cs",
+              "ToolTip": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\NPCs\\MysticScholar.cs",
+              "RelativeToolTip": "NPCs\\MysticScholar.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAzwLUAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T02:30:31.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "build.txt",
+              "DocumentMoniker": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\build.txt",
+              "RelativeDocumentMoniker": "build.txt",
+              "ToolTip": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\build.txt",
+              "RelativeToolTip": "build.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-19T14:47:24.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "en-US_Mods.AppraisalMod.hjson",
+              "DocumentMoniker": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\Localization\\en-US_Mods.AppraisalMod.hjson",
+              "RelativeDocumentMoniker": "Localization\\en-US_Mods.AppraisalMod.hjson",
+              "ToolTip": "C:\\Users\\Reece\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\AppraisalMod\\Localization\\en-US_Mods.AppraisalMod.hjson",
+              "RelativeToolTip": "Localization\\en-US_Mods.AppraisalMod.hjson",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAABIAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-18T17:58:08.712Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

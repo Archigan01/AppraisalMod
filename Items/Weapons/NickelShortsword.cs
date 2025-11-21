@@ -8,13 +8,18 @@ namespace AppraisalMod.Items.Weapons
 {
 	public class NickelShortsword : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+		}
+
 		public override void SetDefaults()
 		{
-			Item.damage = 10;
-			Item.knockBack = 5f;
+			Item.damage = 9;
+			Item.knockBack = 4.5f;
 			Item.useStyle = ItemUseStyleID.Rapier;
-			Item.useAnimation = 12;
-			Item.useTime = 9;
+			Item.useAnimation = 10;
+			Item.useTime = 10;
 			Item.width = 32;
 			Item.height = 32;
 			Item.UseSound = SoundID.Item1;
@@ -23,11 +28,10 @@ namespace AppraisalMod.Items.Weapons
 			Item.noUseGraphic = false;
 			Item.noMelee = false;
 
-			Item.rare = ItemRarityID.Green;
-			Item.value = Item.sellPrice(0, 0, 5, 0);
+			Item.rare = ItemRarityID.Blue;
+			Item.value = Item.sellPrice(0, 0, 1, 50);
 		}
 
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes()
 		{
 			CreateRecipe()

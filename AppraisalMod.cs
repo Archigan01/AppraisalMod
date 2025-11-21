@@ -4,5 +4,6 @@ namespace AppraisalMod
 {
 	public class AppraisalMod : Mod
 	{
+
 	}
 }
