@@ -52,12 +52,12 @@ namespace AppraisalMod.Tiles
 			progress.Message = Language.GetTextValue("Mods.AppraisalMod.GenerationMessages.Ores");
 
 
-			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 6E-05); k++)
+			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 1.5E-04); k++)
 			{
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
 
-				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), ModContent.TileType<NickelOre>());
+				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 8), WorldGen.genRand.Next(2, 5), ModContent.TileType<NickelOre>());
 			}
 		}
 	}

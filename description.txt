@@ -1,6 +1,6 @@
 I am trying to rebuild this mod back to what it was. However, I have lost all of the original files, and may have no way to recover them. I am actively looking for devs, spriters, and the like to push this mod forward in development, please DM me (gfra on Discord) to be added to our server!
 
-I would love for this to be a new, full content mod. Would of course love to see it go past ML, but for now I just want to start from early game and develop through each step of progression. Join the team and let's see what we can make with what we used to have.
+I would love for this to be a new, full content mod. Would of course love to see it go past ML, but for now I just want to start from early game and develop through each step of progression. Join the team and let's see what we can make with what we used to have. https://discord.gg/3WQeea9
 
 v0.11 out now! Changelog:
 - All items and NPCs are back to what they were before
@@ -9,3 +9,9 @@ v0.11 out now! Changelog:
 - Mod properly ported to 1.4.4
 - Updated tooltips
 - Got Nickel to add to the map (finally)
+
+v0.11.1 out now! Changelog:
+- Nickel Set sprites updated
+- Nickel Ore generation tweaked (should see it more frequently now)
+- Added Azure Dagger, with 1/20 chance to drop from Starter Bag
+- Tweaked all items made from Nickel to be consistent in all stats to Copper and Tin

@@ -86,6 +86,15 @@ Items: {
 		DisplayName: Nickel Helmet
 		Tooltip: ""
 	}
+
+	AzureDagger: {
+		DisplayName: Azure Dagger
+		Tooltip:
+			'''
+			A decent early game shortsword
+			In memoir of Azurez, they started this whole thing and this was their very first idea
+			'''
+	}
 }
 
 NPCs: {
@@ -129,3 +138,5 @@ Tiles: {
 		Placeholder: Placeholder
 	}
 }
+
+Projectiles.AzureDaggerProjectile.DisplayName: Azure Dagger Projectile

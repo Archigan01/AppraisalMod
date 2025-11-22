@@ -59,6 +59,11 @@ namespace AppraisalMod.Items
                     player.QuickSpawnItem(null, ItemID.Amber, 10);
                     break;
             }
+
+            if (Main.rand.Next(1, 21) == 20)
+            {
+                player.QuickSpawnItem(null, ModContent.ItemType<AzureDagger>(), 1);
+            }
         }
     }
 }
