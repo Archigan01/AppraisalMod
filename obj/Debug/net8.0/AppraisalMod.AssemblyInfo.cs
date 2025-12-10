@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppraisalMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a513794586ff0d1030ce2a9209c6f5002f1d04d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7df35df59c597dfcfcb5ca3a7420fe8675e3e729")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppraisalMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppraisalMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

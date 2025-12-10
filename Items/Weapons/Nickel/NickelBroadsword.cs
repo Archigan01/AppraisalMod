@@ -4,7 +4,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using AppraisalMod.Items.Placeable;
 
-namespace AppraisalMod.Items.Weapons
+namespace AppraisalMod.Items.Weapons.Nickel
 {
 	public class NickelBroadsword : ModItem
 	{
@@ -34,8 +34,7 @@ namespace AppraisalMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			CreateRecipe()
-				.AddRecipeGroup("Wood", 3)
-				.AddIngredient<NickelOre>(8)
+				.AddIngredient<NickelBar>(6)
 				.AddTile(TileID.Anvils)
 				.Register();
 		}

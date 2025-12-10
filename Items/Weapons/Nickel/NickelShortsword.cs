@@ -4,7 +4,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AppraisalMod.Items.Weapons
+namespace AppraisalMod.Items.Weapons.Nickel
 {
 	public class NickelShortsword : ModItem
 	{
@@ -35,8 +35,7 @@ namespace AppraisalMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			CreateRecipe()
-				.AddRecipeGroup("Wood", 3)
-				.AddIngredient<NickelOre>(6)
+				.AddIngredient<NickelBar>(5)
 				.AddTile(TileID.Anvils)
 				.Register();
 		}

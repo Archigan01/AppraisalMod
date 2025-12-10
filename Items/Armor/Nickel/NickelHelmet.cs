@@ -5,7 +5,7 @@ using Terraria.GameContent.Creative;
 using AppraisalMod.Items.Placeable;
 using AppraisalMod.Items.Armor;
 
-namespace AppraisalMod.Items.Armor
+namespace AppraisalMod.Items.Armor.Nickel
 {
 	[AutoloadEquip(EquipType.Head)]
 	public class NickelHelmet : ModItem
@@ -38,11 +38,10 @@ namespace AppraisalMod.Items.Armor
 			player.statDefense += 4;
 		}
 
-		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 		public override void AddRecipes()
 		{
 			CreateRecipe()
-				.AddIngredient<NickelOre>(15)
+				.AddIngredient<NickelBar>(12)
 				.AddTile(TileID.Anvils)
 				.Register();
 		}

@@ -1,8 +1,9 @@
 ﻿using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
-using AppraisalMod.Items.Tools;
+using AppraisalMod.Items.Tools.Nickel;
 using AppraisalMod.Items.Weapons;
+using AppraisalMod.Items.Weapons.Nickel;
 using AppraisalMod.Items.Placeable;
 
 namespace AppraisalMod.Items

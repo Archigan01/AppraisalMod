@@ -5,9 +5,9 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using AppraisalMod.Items.Placeable;
 
-namespace AppraisalMod.Items.Tools
+namespace AppraisalMod.Items.Tools.Nickel
 {
-	public class NickelHammer : ModItem
+	public class NickelAxe : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -16,19 +16,20 @@ namespace AppraisalMod.Items.Tools
 
 		public override void SetDefaults()
 		{
-			Item.damage = 9;
+			Item.damage = 8;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 40;
 			Item.height = 40;
 			Item.useTime = 15;
-			Item.useAnimation = 26;
+			Item.useAnimation = 25;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 6.5f;
+			Item.knockBack = 5.5f;
 			Item.value = Item.sellPrice(0, 0, 1, 80);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.hammer = 40;
+
+			Item.axe = 9;
 		}
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -41,7 +42,7 @@ namespace AppraisalMod.Items.Tools
 		{
 			CreateRecipe()
 				.AddRecipeGroup("Wood", 3)
-                .AddIngredient<NickelOre>(8)
+				.AddIngredient<NickelBar>(6)
 				.AddTile(TileID.Anvils)
 				.Register();
 		}

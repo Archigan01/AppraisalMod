@@ -1,16 +1,17 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.GameContent.Creative;
+using Terraria.ID;
+using Terraria.ModLoader;
 using AppraisalMod.Items.Placeable;
 
-namespace AppraisalMod.Items.Armor
+namespace AppraisalMod.Items.Armor.Nickel
 {
-	[AutoloadEquip(EquipType.Legs)]
-	public class NickelGreaves : ModItem
+	[AutoloadEquip(EquipType.Body)]
+	public class NickelChainmail : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
+			base.SetStaticDefaults();
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
@@ -19,21 +20,21 @@ namespace AppraisalMod.Items.Armor
 		{
 			Item.width = 18;
 			Item.height = 18;
-			Item.value = Item.sellPrice(0, 0, 4, 50);
+			Item.value = Item.sellPrice(0, 0, 6, 0);
 			Item.rare = ItemRarityID.Blue;
-			Item.defense = 2;
+			Item.defense = 3;
 		}
 
 
 		public override void UpdateEquip(Player player)
 		{
+
 		}
 
-
+		
 		public override void AddRecipes()
 		{
-			CreateRecipe()
-				.AddIngredient<NickelOre>(20)
+			CreateRecipe().AddIngredient<NickelBar>(20)
 				.AddTile(TileID.Anvils)
 				.Register();
 		}

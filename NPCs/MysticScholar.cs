@@ -1,23 +1,27 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AppraisalMod;
+using AppraisalMod.Items;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.Chat;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using Terraria.GameContent.Bestiary;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
-using Terraria.GameContent.Personalities;
-using System.Collections.Generic;
-using ReLogic.Content;
-using AppraisalMod.Items;
 
 namespace AppraisalMod.NPCs
 {
 	[AutoloadHead]
 	public class MysticScholar : ModNPC
 	{
-		public int NumberOfTimesTalkedTo = 0;
+		private AppraisalWorld World => ModContent.GetInstance<AppraisalWorld>();
 		public const string ShopName = "Wares";
 
 		public override void SetStaticDefaults()
@@ -43,6 +47,7 @@ namespace AppraisalMod.NPCs
 				.SetBiomeAffection<JungleBiome>(AffectionLevel.Love)
 				.SetBiomeAffection<HallowBiome>(AffectionLevel.Hate)
 				.SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Love)
+				.SetNPCAffection(NPCID.Dryad, AffectionLevel.Love)
                 .SetNPCAffection(NPCID.Guide, AffectionLevel.Like)
 				.SetNPCAffection(NPCID.Nurse, AffectionLevel.Dislike)
 				.SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Hate)
@@ -138,16 +143,76 @@ namespace AppraisalMod.NPCs
 
 		public override string GetChat()
 		{
+
 			WeightedRandom<string> chat = new();
 
-			if (NumberOfTimesTalkedTo == 0)
+			switch (World.MSCT)
 			{
-				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.FirstTimeDialogue"), 100000);
-			}
+				case 0:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.FirstTimeDialogue"), 100000);
+					break;
+				case 1:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoCDialogue"), 100000);
+                    break;
+				case 2:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoCDialogue2"), 100000);
+					break;
+				case 4:
+					World.MSCT++;
 
-			NumberOfTimesTalkedTo++;
+					if (WorldGen.crimson)
+					{
+                        chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.BoCDialogue"), 100000);
+                    }
+					else
+					{
+                        chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue"), 100000);
+                    }
+						break;
+				case 5:
+					World.MSCT++;
 
-			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue1"));
+					if (WorldGen.crimson)
+					{
+                        chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.BoCDialogue2"), 100000);
+                    }
+					else
+					{
+                        chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue2"), 100000);
+                    }
+						break;
+				case 6:
+					World.MSCT++;
+					if (WorldGen.crimson)
+					{
+						break;
+					}
+					else
+					{
+                        chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue3"), 100000);
+                    }
+						break;
+				case 8:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostWallDialogue"), 100000);
+					break;
+				case 9:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.SecondPostWallDialogue"), 100000);
+					break;
+				case 10:
+                    World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.ThirdPostWallDialogue"), 100000);
+					break;
+				default:
+					break;
+            }
+
+				// Standard quippy dialogues
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue1"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue2"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue3"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue4"));
@@ -161,6 +226,18 @@ namespace AppraisalMod.NPCs
 			{
                 chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Guide"));
             }
+			if (NPC.FindFirstNPC(NPCID.Nurse) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Nurse"));
+			}
+			if (NPC.FindFirstNPC(NPCID.Dryad) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Dryad"));
+			}
+			if (NPC.FindFirstNPC(NPCID.DD2Bartender) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Tavernkeep"));
+			}
 			if (NPC.FindFirstNPC(NPCID.WitchDoctor) is not -1)
 			{
 				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.WitchDoctor"));
@@ -169,6 +246,10 @@ namespace AppraisalMod.NPCs
             {
                 chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Stylist"));
             }
+			if (NPC.FindFirstNPC(NPCID.Clothier) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Stylist"));
+			}
             if (NPC.FindFirstNPC(NPCID.TaxCollector) is not -1)
             {
                 chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.TaxCollector"));
@@ -177,6 +258,10 @@ namespace AppraisalMod.NPCs
             {
                 chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.PartyGirl"));
             }
+			if (NPC.FindFirstNPC(NPCID.Cyborg) is not -1)
+			{
+				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Cyborg"));
+			}
             if (NPC.FindFirstNPC(NPCID.Princess) is not -1)
             {
                 chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.TownNPCSpecific.Princess"));

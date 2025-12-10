@@ -15,3 +15,5 @@ v0.11.1 out now! Changelog:
 - Nickel Ore generation tweaked (should see it more frequently now)
 - Added Azure Dagger, with 1/20 chance to drop from Starter Bag
 - Tweaked all items made from Nickel to be consistent in all stats to Copper and Tin
+
+Buy me a coffee! https://buymeacoffee.com/archigan

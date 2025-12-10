@@ -12,10 +12,10 @@ namespace AppraisalMod
 
 		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)
 		{
-			return new[]
-			{
-				new Item(ModContent.ItemType<StarterBag>())
-			};
+			return
+            [
+                new Item(ModContent.ItemType<StarterBag>())
+			];
 		}
 	}
 }
