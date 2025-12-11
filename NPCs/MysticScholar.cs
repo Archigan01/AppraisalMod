@@ -171,7 +171,7 @@ namespace AppraisalMod.NPCs
 					{
                         chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue"), 100000);
                     }
-						break;
+					break;
 				case 5:
 					World.MSCT++;
 
@@ -183,27 +183,46 @@ namespace AppraisalMod.NPCs
 					{
                         chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue2"), 100000);
                     }
-						break;
+					break;
 				case 6:
 					World.MSCT++;
 					if (WorldGen.crimson)
 					{
-						break;
+					break;
 					}
 					else
 					{
                         chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.EoWDialogue3"), 100000);
                     }
-						break;
+					break;
 				case 8:
+					World.MSCT++;
+					if (WorldGen.crimson)
+					{
+						chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostBoCDialogue"), 100000);
+					}
+					else
+					{
+						chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostEoWDialogue"), 100000);
+					}
+					break;
+				case 9:
+					World.MSCT++;
+					chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PreSkeleDialogue"), 100000);
+					break;
+				case 10:
+					World.MSCT++;
+                    chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PreSkeleDialogue2"), 100000);
+                    break;
+                case 12:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostWallDialogue"), 100000);
 					break;
-				case 9:
+				case 13:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.SecondPostWallDialogue"), 100000);
 					break;
-				case 10:
+				case 14:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.ThirdPostWallDialogue"), 100000);
 					break;

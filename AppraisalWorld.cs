@@ -23,6 +23,7 @@ namespace AppraisalMod
 
         private bool EoCFlag = false;
         private bool Boss2Flag = false;
+        private bool SkeleFlag = false;
         private bool WoFFlag = false;
         private bool MLFlag = false;
         public override void PostWorldGen()
@@ -46,6 +47,13 @@ namespace AppraisalMod
             if (NPC.downedBoss2 && !Boss2Flag)
             {
                 Boss2Flag = true;
+                MSCT++;
+                ChatHelper.BroadcastChatMessageAs(byte.MaxValue, NetworkText.FromKey("Mods.AppraisalMod.Chats.DownedBossChat"), Color.Purple);
+            }
+
+            if (NPC.downedBoss3 && !SkeleFlag)
+            {
+                SkeleFlag = true;
                 MSCT++;
                 ChatHelper.BroadcastChatMessageAs(byte.MaxValue, NetworkText.FromKey("Mods.AppraisalMod.Chats.DownedBossChat"), Color.Purple);
             }
