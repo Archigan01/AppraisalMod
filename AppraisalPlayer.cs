@@ -8,8 +8,6 @@ namespace AppraisalMod
 {
     public class AppraisalPlayer : ModPlayer
     {
-        public bool ZoneExample;
-
 		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)
 		{
 			return

@@ -214,15 +214,27 @@ namespace AppraisalMod.NPCs
 					World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PreSkeleDialogue2"), 100000);
                     break;
-                case 12:
+				case 12:
+					World.MSCT++;
+					chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostSkeleDialogue"), 100000);
+					break;
+				case 13:
+					World.MSCT++;
+					chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PreWallDialogue1"), 100000);
+					break;
+				case 14:
+					World.MSCT++;
+					chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PreWallDialogue2"), 100000);
+					break;
+                case 16:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.PostWallDialogue"), 100000);
 					break;
-				case 13:
+				case 17:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.SecondPostWallDialogue"), 100000);
 					break;
-				case 14:
+				case 18:
                     World.MSCT++;
                     chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.ThirdPostWallDialogue"), 100000);
 					break;
@@ -230,8 +242,8 @@ namespace AppraisalMod.NPCs
 					break;
             }
 
-				// Standard quippy dialogues
-				chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue1"));
+			// Standard quippy dialogues
+			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue1"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue2"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue3"));
 			chat.Add(Language.GetTextValue("Mods.AppraisalMod.Dialogue.MysticScholar.StandardDialogue4"));

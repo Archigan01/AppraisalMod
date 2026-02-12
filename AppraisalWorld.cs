@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using Terraria;
 using Terraria.Chat;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
