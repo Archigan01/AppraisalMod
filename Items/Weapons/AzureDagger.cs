@@ -21,13 +21,14 @@ namespace AppraisalMod.Items.Weapons
             Item.useStyle = ItemUseStyleID.Rapier;
             Item.useAnimation = 10;
             Item.useTime = 10;
-            Item.width = 32;
-            Item.height = 32;
+            Item.width = 37;
+            Item.height = 37;
             Item.UseSound = SoundID.Item1;
             Item.DamageType = DamageClass.MeleeNoSpeed;
             Item.autoReuse = true;
             Item.noUseGraphic = true;
             Item.noMelee = true;
+            Item.scale = 0.86f;
 
             Item.rare = ItemRarityID.Green;
             Item.value = Item.sellPrice(0, 0, 25, 0);
