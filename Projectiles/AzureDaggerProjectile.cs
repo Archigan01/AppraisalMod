@@ -32,7 +32,7 @@ namespace AppraisalMod.Projectiles
             Projectile.friendly = true;
             Projectile.penetrate = -1;
             Projectile.tileCollide = false;
-            Projectile.scale = 0.43f;
+            Projectile.scale = 1f;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.ownerHitCheck = true; // Prevents hits through tiles. Most melee weapons that use projectiles have this
             Projectile.extraUpdates = 1; // Update 1+extraUpdates times per tick
@@ -80,8 +80,8 @@ namespace AppraisalMod.Projectiles
         private void SetVisualOffsets()
         {
             // 32 is the sprite size (here both width and height equal)
-            const int HalfSpriteWidth = 74 / 2;
-            const int HalfSpriteHeight = 74 / 2;
+            const int HalfSpriteWidth = 32 / 2;
+            const int HalfSpriteHeight = 32 / 2;
 
             int HalfProjWidth = Projectile.width / 2;
             int HalfProjHeight = Projectile.height / 2;
